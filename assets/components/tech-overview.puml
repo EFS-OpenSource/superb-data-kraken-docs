@@ -1,0 +1,34 @@
+@startuml
+frame Azure {
+    node "Azure Database for PostgreSQL Server"
+    node "Azure EventHub"
+    frame "Azure Kubernetes Service" {
+        frame "SDK Frontend" {
+            node "frontend" #aliceblue;line:blue;text:blue
+        }
+        frame "SDK Analyze" {
+            node Grafana
+            node JupyterHub
+            node "opensearch (analyze)"
+            node "opensearch-dashboards"
+        }
+        frame "SDK Metadata" {
+            node "metadata service" #aliceblue;line:blue;text:blue
+            node organizationmanager #aliceblue;line:blue;text:blue
+            node search #aliceblue;line:blue;text:blue
+            node "opensearch (metadata)"
+        }
+        frame "SDK Datastore" {
+            node accessmanager #aliceblue;line:blue;text:blue
+            node storagemanager #aliceblue;line:blue;text:blue
+            node ingest #aliceblue;line:blue;text:blue
+        }
+        frame "SDK Ops" {
+            node "argo"
+            node "loki-stack"
+            node keycloak
+            node "cert-manager"
+        }
+    }
+}
+@enduml

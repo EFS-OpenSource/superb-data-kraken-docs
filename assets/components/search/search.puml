@@ -1,0 +1,10 @@
+@startuml
+actor User
+User -> Search: search [http/https]
+
+group send requests
+    Search -> OpenSearch: execute search
+    OpenSearch -> Search: Response
+end
+Search -> User: Response [http/https]
+@enduml

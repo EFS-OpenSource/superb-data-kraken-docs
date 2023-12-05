@@ -1,0 +1,12 @@
+@startuml
+actor User
+User -> AccessManager: Create SAS-Token [http/https]
+
+group send requests
+    AccessManager -> Organizationmanager: Validate Request [http]
+    Organizationmanager -> AccessManager: Response [http]
+    AccessManager -> EventHub: send message "accessmanager-commit" [Kafka]
+    EventHub -> AccessManager: Response
+end
+AccessManager -> User: Response [http/https]
+@enduml

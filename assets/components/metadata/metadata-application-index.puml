@@ -1,0 +1,14 @@
+@startuml
+actor User
+User -> MetadataService: Create applicationindex [http/https]
+MetadataService --> MetadataService: Validate Request [https]
+
+group send requests
+    MetadataService -> Keycloak: Request ServiceAccount-Token [http]
+    Keycloak -> MetadataService: ServiceAccount-Token [http]
+    MetadataService -> OpenSearch: create application-index [http]
+    note right: use of ServiceAccount-Token
+    OpenSearch -> MetadataService: Response [http]
+end
+MetadataService -> User: Response [http/https]
+@enduml
