@@ -903,7 +903,7 @@
         
   
   <span class="md-ellipsis">
-    Contributing to the Superb Data Kraken (SDK) <!-- omit in toc -->
+    Contributing to the SDK
   </span>
   
 
@@ -1218,13 +1218,21 @@ Based on the data a dashboard shall be created.</p>
 <p>Customers should only see the data that belongs to them.</p>
 <h3 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h3>
 <h4 id="document-level-security">Document level security<a class="headerlink" href="#document-level-security" title="Permanent link">&para;</a></h4>
-<p><img alt="Document level security" src="../../assets/howto-doc-level-sec-dsl.png" /></p>
+<figure>
+<p><img alt="Document level security" src="../../assets/howto-doc-level-sec-dsl.png" />
+  </p>
+<figcaption>Document level security</figcaption>
+</figure>
 <p>All documents are stored in one index in Opensearch. Document level security is applied to the index to seperate the data of different customers. This requires an attribute that contains the customer information.</p>
 <p>Roles and rights of a user are evaluated on each query to only return the documents that belong to the customer.</p>
 <p>Requires configuration of security on different levels. the Superb Data Kraken used Index-Level-Security. This has to be combined with Document-Level-Security and complicates role management.</p>
 <h4 id="index-level-security">Index level security<a class="headerlink" href="#index-level-security" title="Permanent link">&para;</a></h4>
 <p>This solution is focused on using multiple indices for different customers and combining them with a common Alias.</p>
-<p><img alt="Index level Security" src="../../assets/howto-doc-level-sec-isl.png" /></p>
+<figure>
+<p><img alt="Index level Security" src="../../assets/howto-doc-level-sec-isl.png" />
+  </p>
+<figcaption>Index level Security</figcaption>
+</figure>
 <p>The scripts ingesting data to Opensearch use an attribute in the data to decide what index shall be filled.
 Data for different customers are written to seperate indices. Because the Superb Data Kraken already uses Index-Level-Security no additional configuration is required.</p>
 <p>For querying data from all the indices a common Alias or Openasearch index-pattern is used. So there is no need to perform multiple queries on different indices.</p>

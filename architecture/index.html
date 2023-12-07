@@ -834,7 +834,7 @@
         
   
   <span class="md-ellipsis">
-    Contributing to the Superb Data Kraken (SDK) <!-- omit in toc -->
+    Contributing to the SDK
   </span>
   
 
@@ -1038,7 +1038,11 @@
 <p>The following diagram provides a brief overview of all the services that make up the Superb Data Kraken.
 Services that are self-implemented are marked blue, while open-source solutions are marked grey.</p>
 <p>All services and modules run on a Kubernetes cluster.</p>
-<p><img alt="Tech-Overview" src="../assets/components/tech-overview.svg" /></p>
+<figure>
+<p><img alt="Tech-Overview" src="../assets/components/tech-overview.svg" />
+  </p>
+<figcaption>Tech-Overview</figcaption>
+</figure>
 <p>At this point, it should be noted that all communication within the kubernetes cluster takes place via http as far as possible (the communication between
 frontend and backend is of course ssl-encrypted). The representations in the following chapters contain the respective protocol in square brackets. Some
 communication paths are specified more than once ("<code>[http/https]</code>"), this is due to the fact that it depends on how the communication is established (
@@ -1058,37 +1062,73 @@ target-<abbr title="usecase in the SDK">space</abbr>) - however this is out of t
 <li>ANALYSIS: provides capabilities in order to generate custom analysis</li>
 </ul>
 <p>The <abbr title="manages organizations and spaces">organizationmanager</abbr> calls the defined services to create the complete context infrastructure when creating an <abbr title="groups several spaces">organization</abbr> or <abbr title="usecase in the SDK">space</abbr>.</p>
-<p><img alt="CRUD organization/space" src="../assets/components/orgamanager/orgamanager-crud-organization.svg" /></p>
+<figure>
+<p><img alt="CRUD organization/space" src="../assets/components/orgamanager/orgamanager-crud-organization.svg" />
+  </p>
+<figcaption>CRUD organization/space</figcaption>
+</figure>
 <p>In addition to organizations and spaces, the <abbr title="manages organizations and spaces">organizationmanager</abbr> manages the authorization for these. For information on which roles exist and what they are
 authorized for, please refer to the <a href="roles-and-rights/#roles--rights">roles/rights concept</a>.</p>
-<p><img alt="CRUD UserRequests" src="../assets/components/orgamanager/orgamanager-crud-userrequest.svg" /></p>
+<figure>
+<p><img alt="CRUD UserRequests" src="../assets/components/orgamanager/orgamanager-crud-userrequest.svg" />
+  </p>
+<figcaption>CRUD UserRequests</figcaption>
+</figure>
 <p>If users require authorization to a certain <abbr title="groups several spaces">organization</abbr>/<abbr title="usecase in the SDK">space</abbr>, they can request access ("<code>UserRequest</code>") with the desired roles. An administrator (or owner)
 can then grant permission or deny it. An administrator (or owner) can also directly grant permissions to users.</p>
-<p><img alt="CRUD Authorization" src="../assets/components/orgamanager/orgamanager-crud-authorization.svg" /></p>
+<figure>
+<p><img alt="CRUD Authorization" src="../assets/components/orgamanager/orgamanager-crud-authorization.svg" />
+  </p>
+<figcaption>CRUD Authorization</figcaption>
+</figure>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <p>Handles opensearch-structure (roles, rolesmappings, tenants...) and provides endpoints for indexing and handling application-indizes.</p>
 <p>When creating an <abbr title="groups several spaces">organization</abbr>, <abbr title="data describing massdata">metadata</abbr>-Service will provide a tenant, as well as dedicated roles and rolesmappings for <abbr title="groups several spaces">organization</abbr>-level roles.</p>
-<p><img alt="CRUD organization" src="../assets/components/metadata/metadata-organization-context.svg" /></p>
+<figure>
+<p><img alt="CRUD organization" src="../assets/components/metadata/metadata-organization-context.svg" />
+  </p>
+<figcaption>CRUD organization</figcaption>
+</figure>
 <p>When creating a <abbr title="usecase in the SDK">space</abbr>, <abbr title="data describing massdata">metadata</abbr>-Service will provide a tenant, as well as dedicated roles and rolesmappings for <abbr title="usecase in the SDK">space</abbr>-level roles and an
 index <code>&lt;orga&gt;_&lt;space&gt;_measurements</code> (including an alias <code>measurements</code>).</p>
-<p><img alt="CRUD space" src="../assets/components/metadata/metadata-space-context.svg" /></p>
+<figure>
+<p><img alt="CRUD space" src="../assets/components/metadata/metadata-space-context.svg" />
+  </p>
+<figcaption>CRUD space</figcaption>
+</figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Only trustee can write to index, however also a supplier can create a document! This is due to the fact, that a supplier would be able to overwrite a
 document "empty" and thus delete a document (which would clash with the <a href="roles-and-rights/#roles--rights">roles-/right-concept</a>). Therefore a serviceaccount is used.</p>
 </div>
-<p><img alt="Index" src="../assets/components/metadata/metadata-index.svg" /></p>
+<figure>
+<p><img alt="Index" src="../assets/components/metadata/metadata-index.svg" />
+  </p>
+<figcaption>Index</figcaption>
+</figure>
 <p>To enable users to create their own analyses, it is possible to create their own analysis indices (application indices) via the <abbr title="data describing massdata">metadata</abbr> service. These analysis
 indices are given a name according to the following scheme: <code>&lt;orga&gt;_&lt;space&gt;_analysis_&lt;a_custom_name&gt;</code>.</p>
-<p><img alt="Application-Index" src="../assets/components/metadata/metadata-application-index.svg" /></p>
+<figure>
+<p><img alt="Application-Index" src="../assets/components/metadata/metadata-application-index.svg" />
+  </p>
+<figcaption>Application-Index</figcaption>
+</figure>
 <h2 id="storagemanager">Storagemanager<a class="headerlink" href="#storagemanager" title="Permanent link">&para;</a></h2>
 <p>Handles storageorganization (in Azure: creates StorageAccount for <abbr title="groups several spaces">organization</abbr> and Container for <abbr title="usecase in the SDK">space</abbr>; in S3: creates matching prefixes).</p>
 <p>Here is, how data is being stored in Superb Data Kraken:</p>
-<p><img alt="Storageorganization" src="../assets/components/storagemanager/storageorganization.svg" /></p>
+<figure>
+<p><img alt="Storageorganization" src="../assets/components/storagemanager/storageorganization.svg" />
+  </p>
+<figcaption>Storageorganization</figcaption>
+</figure>
 <p>The reason why there is a dedicated loading zone is that it gives the user the possibility to provide subsequent deliveries to his dataset. Also, this way it
 can be ensured that all data that has been indexed is complete and valid (see <a href="#ingest">Ingest</a>).</p>
 <p>The following illustration represent the storagemanagement as it is being handled in Azure.</p>
-<p><img alt="CRUD Storage" src="../assets/components/storagemanager/crud-storage.svg" /></p>
+<figure>
+<p><img alt="CRUD Storage" src="../assets/components/storagemanager/crud-storage.svg" width="450px" />
+  </p>
+<figcaption>CRUD Storage</figcaption>
+</figure>
 <h2 id="accessmanager">Accessmanager<a class="headerlink" href="#accessmanager" title="Permanent link">&para;</a></h2>
 <p>Provides endpoints for generating shared access signatures, as well as an endpoint for signalling, that the upload is complete ("commit").</p>
 <div class="admonition note">
@@ -1102,10 +1142,18 @@ can be ensured that all data that has been indexed is complete and valid (see <a
 <li>Delete</li>
 <li>Upload-main - this endpoint is only viable for trustees, it enables the user to upload directly to main-storage (passing loadingzone)</li>
 </ul>
-<p><img alt="Create SAS Token" src="../assets/components/accessmanager/accessmanager-sas-token.svg" /></p>
+<figure>
+<p><img alt="Create SAS Token" src="../assets/components/accessmanager/accessmanager-sas-token.svg" width="550px" />
+  </p>
+<figcaption>Create SAS Token</figcaption>
+</figure>
 <p>In order for subsequent processes to start without relying on conventions ("<abbr title="json-File containing datasets metadata">meta.json</abbr>" uploaded last), a dedicated endpoint signals the completion of the
 upload. This sends a message to the Azure EventHub ("<abbr title="service for generating Shared Access Signatures">accessmanager</abbr>-commit") to which the workflow engine can respond.</p>
-<p><img alt="Commit" src="../assets/components/accessmanager/accessmanager-commit.svg" /></p>
+<figure>
+<p><img alt="Commit" src="../assets/components/accessmanager/accessmanager-commit.svg" width="450px" />
+  </p>
+<figcaption>Commit</figcaption>
+</figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For downward-capability <abbr title="service for generating Shared Access Signatures">accessmanager</abbr> has some endpoints for managing organizations and spaces. However this functionality is deprecated and will be removed.</p>
@@ -1126,7 +1174,11 @@ upload. This sends a message to the Azure EventHub ("<abbr title="service for ge
 <p>For simplicity-reasons the following illustration is restricted on azure-specific implementation.</p>
 <p>Although a serviceaccount-token is initially created by the <abbr title="describes how imported data is being consumed">ingest</abbr>, the index endpoint of the <abbr title="data describing massdata">metadata</abbr> service is invoked with a user-token to take advantage of the request validation of the <abbr title="data describing massdata">metadata</abbr> service (knowing that the <abbr title="handles OpenSearch-structure and provides endpoints for indexing and handling application-indices">metadata-service</abbr> also switches to a serviceaccount context).</p>
 </div>
-<p><img alt="Ingest" src="../assets/components/ingest/ingest.svg" /></p>
+<figure>
+<p><img alt="Ingest" src="../assets/components/ingest/ingest.svg" />
+  </p>
+<figcaption>Ingest</figcaption>
+</figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>There are considerations of defining a custom <abbr title="describes how imported data is being consumed">ingest</abbr>-process for a <abbr title="usecase in the SDK">space</abbr>.</p>
@@ -1135,8 +1187,16 @@ upload. This sends a message to the Azure EventHub ("<abbr title="service for ge
 <p>The <abbr title="service for searching in metadata stored in OpenSearch">search-service</abbr> wraps opensearch in a user-friendly manner. It provides endpoints to enable listing all available properties including the possible
 search-operators (e.g. string-properties do not support <code>&lt;</code>, <code>&gt;</code>). Some properties might be available as result-property however not as criteria (<code>enabled</code>),
 which is also taken into consideration.</p>
-<p><img alt="Search properties" src="../assets/components/search/search-properties.svg" /></p>
-<p><img alt="Search" src="../assets/components/search/search.svg" /></p>
+<figure>
+<p><img alt="Search properties" src="../assets/components/search/search-properties.svg" width="450px" />
+  </p>
+<figcaption>Search properties</figcaption>
+</figure>
+<figure>
+<p><img alt="Search" src="../assets/components/search/search.svg" width="350px" />
+  </p>
+<figcaption>Search</figcaption>
+</figure>
 
 
 

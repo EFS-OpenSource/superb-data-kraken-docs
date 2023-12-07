@@ -496,7 +496,7 @@
         <li class="md-nav__item">
   <a href="#space" class="md-nav__link">
     <span class="md-ellipsis">
-      space
+      Space
     </span>
   </a>
   
@@ -807,7 +807,7 @@
         
   
   <span class="md-ellipsis">
-    Contributing to the Superb Data Kraken (SDK) <!-- omit in toc -->
+    Contributing to the SDK
   </span>
   
 
@@ -937,7 +937,7 @@
         <li class="md-nav__item">
   <a href="#space" class="md-nav__link">
     <span class="md-ellipsis">
-      space
+      Space
     </span>
   </a>
   
@@ -983,7 +983,7 @@
 <h1 id="walk-through">Walk Through<a class="headerlink" href="#walk-through" title="Permanent link">&para;</a></h1>
 <p>This page gives you an overview of a Use Case which contains all the standard features of the <abbr title="Superb Data Kraken">SDK</abbr>.
 We will upload a file into the <abbr title="Superb Data Kraken">SDK</abbr> and use its data to create a simple Dashboard to visualize the data.</p>
-<h2 id="space"><abbr title="usecase in the SDK">space</abbr><a class="headerlink" href="#space" title="Permanent link">&para;</a></h2>
+<h2 id="space">Space<a class="headerlink" href="#space" title="Permanent link">&para;</a></h2>
 <p>A <abbr title="usecase in the SDK">space</abbr> gives you the option to Upload data into the <abbr title="Superb Data Kraken">SDK</abbr> and also provides you with the option to search
 for the uploaded files. You are also able to access your existing Dashboards or create new ones with the data you uploaded.</p>
 <p>Once you enter your <abbr title="usecase in the SDK">space</abbr> you will see the general options tab. Here you see:</p>
@@ -993,20 +993,40 @@ for the uploaded files. You are also able to access your existing Dashboards or 
 <li>a short description</li>
 <li>the <abbr title="usecase in the SDK">space</abbr> owner</li>
 </ul>
-<p><img alt="space Overview" src="../../assets/space_overview.png" /></p>
+<figure>
+<p><img alt="Space Overview" src="../../assets/space_overview.png" />
+  </p>
+<figcaption>Space Overview</figcaption>
+</figure>
 <p>You have the option to upload folders or files into the <abbr title="Superb Data Kraken">SDK</abbr> inside the Upload tab. You need the supplier role to be able 
 to upload files in the <abbr title="Superb Data Kraken">SDK</abbr> (more on that later). The Upload to the <abbr title="Superb Data Kraken">SDK</abbr> will take a few seconds and after that you will 
 be able to search the files in the Search tab. For this example we uploaded a csv file that we use later to load its data 
 into <abbr title="search-engine, used for metadata-management and as result-store (fork of Elasticsearch)">OpenSearch</abbr>, after we created an index for them.</p>
-<p><img alt="Upload" src="../../assets/space_upload.png" /></p>
+<figure>
+<p><img alt="Upload" src="../../assets/space_upload.png" />
+  </p>
+<figcaption>Upload</figcaption>
+</figure>
 <p>The Search tab provides you with the option to search for any word which your Upload contained. In this example we 
 Uploaded a file called "Netflix Userbase". The search result contains the <abbr title="data describing massdata">metadata</abbr> description of the file.
 You are able to access the file itself by clicking on the <abbr title="data describing massdata">metadata</abbr>.</p>
-<p><img alt="space Search" src="../../assets/space_search.png" /></p>
+<figure>
+<p><img alt="Space Search" src="../../assets/space_search.png" />
+  </p>
+<figcaption>Space search</figcaption>
+</figure>
 <p>Here you find the file itself, and you are also able to download it directly from the <abbr title="Superb Data Kraken">SDK</abbr> storage.</p>
-<p><img alt="space Search Details" src="../../assets/space_show.png" /></p>
+<figure>
+<p><img alt="Space Search Details" src="../../assets/space_show.png" />
+  </p>
+<figcaption>Space Search Details</figcaption>
+</figure>
 <p>The Dashboard tab provides you with the option to access your Dashboards. A detailed overview will be given later.</p>
-<p><img alt="space Dashboards" src="../../assets/dashboard_tab.png" /></p>
+<figure>
+<p><img alt="Space Dashboards" src="../../assets/dashboard_tab.png" />
+  </p>
+<figcaption>Space Dashboards</figcaption>
+</figure>
 <h2 id="python-client">Python-Client<a class="headerlink" href="#python-client" title="Permanent link">&para;</a></h2>
 <p>Now that you uploaded a file in your <abbr title="usecase in the SDK">space</abbr>, you can access the data in your file and save this data in <abbr title="search-engine, used for metadata-management and as result-store (fork of Elasticsearch)">OpenSearch</abbr>, 
 which gets provided by the <abbr title="Superb Data Kraken">SDK</abbr>. You can do that with <a href="https://pypi.org/project/superb-data-klient/">Superb Data Klient</a>.</p>
@@ -1054,34 +1074,78 @@ You have to enter the organizationName, the spaceName, a customName, the indexTy
 <h2 id="dashboards">Dashboards<a class="headerlink" href="#dashboards" title="Permanent link">&para;</a></h2>
 <p>Dashboards can be accessed either through your <abbr title="usecase in the SDK">space</abbr> in the Dashboard tab or through the <abbr title="search-engine, used for metadata-management and as result-store (fork of Elasticsearch)">OpenSearch</abbr> Dashboard icon on the 
 Sidebar.</p>
-<p><img alt="Dashboard Overview" src="../../assets/dashboard_overview.png" /></p>
+<figure>
+<p><img alt="Dashboard Overview" src="../../assets/dashboard_overview.png" />
+  </p>
+<figcaption>Dashboard Overview</figcaption>
+</figure>
 <p>For this Use Case we use <abbr title="search-engine, used for metadata-management and as result-store (fork of Elasticsearch)">OpenSearch</abbr> to create a Dashboard for the Data we just uploaded. For this we first need to 
 create an index pattern. This is done in the <code>Dashboards Management</code> which can be found in the <code>Management</code> Tools of <abbr title="search-engine, used for metadata-management and as result-store (fork of Elasticsearch)">OpenSearch</abbr>.</p>
-<p><img alt="Create Index Pattern (1)" src="../../assets/create_indexpattern_1.png" /></p>
+<figure>
+<p><img alt="Create Index Pattern (1)" src="../../assets/create_indexpattern_1.png" width="250px" />
+  </p>
+<figcaption>Create Index Pattern (1)</figcaption>
+</figure>
 <p>Next you have to select the option to create an Index Pattern and confirm the next two steps.</p>
-<p><img alt="Create Index Pattern (2)" src="../../assets/create_indexpattern_2.png" /></p>
+<figure>
+<p><img alt="Create Index Pattern (2)" src="../../assets/create_indexpattern_2.png" width="250px" />
+  </p>
+<figcaption>Create Index Pattern (2)</figcaption>
+</figure>
 <p>You now have an empty index in your <abbr title="search-engine, used for metadata-management and as result-store (fork of Elasticsearch)">OpenSearch</abbr>. To confirm this, you can open the <code>Dev Tools</code> of <abbr title="search-engine, used for metadata-management and as result-store (fork of Elasticsearch)">OpenSearch</abbr> (located in the <code>Management</code> section). Here you can send a query to inspect your newly created index.
 For this example, it would be:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>GET  /sdkdemonstrations_netflix_analysis_users/_search
 </span></code></pre></div>
 <p>After running the python snipped and upload some data, you should get a result similar to this:</p>
-<p><img alt="Index with data" src="../../assets/index_with_data.png" /></p>
+<figure>
+<p><img alt="Index with data" src="../../assets/index_with_data.png" />
+  </p>
+<figcaption>Index with data</figcaption>
+</figure>
 <p>With this data, you are now able to use them in visualizations.</p>
 <p>This can be done by creating a new Dashboard.</p>
-<p><img alt="Create new Dashboard" src="../../assets/create_new_dashboard.png" /></p>
+<figure>
+<p><img alt="Create new Dashboard" src="../../assets/create_new_dashboard.png" />
+  </p>
+<figcaption>Create new Dashboard</figcaption>
+</figure>
 <p>In the next step you have to choose the form of the visualization best suited for your data.</p>
-<p><img alt="Choose visualization" src="../../assets/choose_visualization.png" /></p>
+<figure>
+<p><img alt="Choose visualization" src="../../assets/choose_visualization.png" width="700px" />
+  </p>
+<figcaption>Choose visualization</figcaption>
+</figure>
 <p>Finally, you have to choose the index Pattern you have created.</p>
-<p><img alt="Choose Index Pattern" src="../../assets/choose_index_pattern.png" /></p>
+<figure>
+<p><img alt="Choose Index Pattern" src="../../assets/choose_index_pattern.png" width="700px" />
+  </p>
+<figcaption>Choose Index Pattern</figcaption>
+</figure>
 <p>Now you are able to visualize your data in a dashboard. In this simple example we took the average age per country and
 placed them next to each other to see which country has the oldest and which got the youngest Netflix subscribers.</p>
-<p><img alt="X-Axis" src="../../assets/dashboard_x.png" /></p>
-<p><img alt="Y-Axis" src="../../assets/dashboard_y.png" /></p>
-<p><img alt="Example" src="../../assets/dashboard_example.png" /></p>
+<figure>
+<p><img alt="X-Axis" src="../../assets/dashboard_x.png" />
+  </p>
+<figcaption>X-Axis</figcaption>
+</figure>
+<figure>
+<p><img alt="Y-Axis" src="../../assets/dashboard_y.png" />
+  </p>
+<figcaption>Y-Axis</figcaption>
+</figure>
+<figure>
+<p><img alt="Example" src="../../assets/dashboard_example.png" />
+  </p>
+<figcaption>Example</figcaption>
+</figure>
 <p>Concluding, if you are creating reports for your dashboard to download, please keep in mind to mark these with the 
 corresponding data classification of the <abbr title="Superb Data Kraken">SDK</abbr> <abbr title="usecase in the SDK">space</abbr> you are working in. To do this, add a header or footer when creating
 the report, like here for internal data:</p>
-<p><img alt="Data Classification of a Opensearch Dashboard Report" src="../../assets/dashboard_data_classification.png" /></p>
+<figure>
+<p><img alt="Data Classification of a Opensearch Dashboard Report" src="../../assets/dashboard_data_classification.png" />
+  </p>
+<figcaption>Data Classification of Report</figcaption>
+</figure>
 
 
 
