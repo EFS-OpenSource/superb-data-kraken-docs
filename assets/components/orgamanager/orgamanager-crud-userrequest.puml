@@ -1,0 +1,17 @@
+@startuml
+actor User
+actor Admin
+User -> Organizationmanager: Create UserRequest [http/https]
+Organizationmanager --> Organizationmanager: Validate Request
+Organizationmanager --> Organizationmanager: persist Entity
+
+Admin -> Organizationmanager: List UserRequests
+
+group send requests (only, if Admin accepts request)
+    Organizationmanager -> Keycloak: CRUD Permission [http]
+    Keycloak -> Organizationmanager: Response [http]
+end
+
+Organizationmanager --> Organizationmanager: persist status of UserRequest
+Organizationmanager -> User: Response [http/https]
+@enduml
