@@ -1,0 +1,98 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: sdk
+  description: Documentation of the Superb Data Kraken
+  annotations:
+    dev.azure.com/project-repo: EFS-SDK/superb-data-kraken-docs
+    backstage.io/techdocs-ref: dir:.
+  tags:
+  - sdk
+  links:
+  - url: https://superbdatakraken.io/
+    title: Homepage
+  - url: https://github.com/EFS-OpenSource/superb-data-kraken-docs
+    title: GitHub
+spec:
+  owner: team-sdk
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sdk-analyze
+  description: Analyze module of the Superb Data Kraken
+  annotations:
+    dev.azure.com/project-repo: EFS-SDK/superb-data-kraken-docs
+  tags:
+  - sdk
+  - sdk-analyze
+spec:
+  type: system-module
+  lifecycle: production
+  owner: team-sdk
+  system: sdk
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sdk-metadata
+  description: Metadata module of the Superb Data Kraken
+  annotations:
+    dev.azure.com/project-repo: EFS-SDK/superb-data-kraken-docs
+  tags:
+  - sdk
+  - sdk-metadata
+spec:
+  type: system-module
+  lifecycle: production
+  owner: team-sdk
+  system: sdk
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sdk-datastore
+  description: Datastore module of the Superb Data Kraken
+  annotations:
+    dev.azure.com/project-repo: EFS-SDK/superb-data-kraken-docs
+  tags:
+  - sdk
+  - sdk-datastore
+spec:
+  type: system-module
+  lifecycle: production
+  owner: team-sdk
+  system: sdk
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sdk-operations
+  description: Operations module of the Superb Data Kraken
+  annotations:
+    dev.azure.com/project-repo: EFS-SDK/superb-data-kraken-docs
+  tags:
+  - sdk
+  - sdk-operations
+spec:
+  type: system-module
+  lifecycle: production
+  owner: team-sdk
+  system: sdk
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sdk-frontend
+  description: Frontend module of the Superb Data Kraken
+  annotations:
+    dev.azure.com/project-repo: EFS-SDK/superb-data-kraken-docs
+  tags:
+  - sdk
+  - sdk-frontend
+spec:
+  type: system-module
+  lifecycle: production
+  owner: team-sdk
+  system: sdk

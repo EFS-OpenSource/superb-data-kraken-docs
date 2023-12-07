@@ -1,0 +1,13 @@
+@startuml
+actor User
+User -> AccessManager: Create SAS-Token [https]
+
+group send requests
+    AccessManager -> Organizationmanager: Validate Request [http]
+    Organizationmanager -> AccessManager: Response [http]
+    AccessManager -> AzureStorage: Request ServiceAccount-Token [https]
+    note right: use of a storage principal
+    AzureStorage -> AccessManager: Response [https]
+end
+AccessManager -> User: Response [https]
+@enduml

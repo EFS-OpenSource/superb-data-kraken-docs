@@ -1,0 +1,42 @@
+name: Docs
+
+on:
+  push:
+    branches:
+    - main # Change this if your main branch has a different name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Build and deploy
+      run: |
+        mkdocs build
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: ./site
+
+# # Trigger repository_dispatch event in efs-opensource.github.io repository
+# - name: Trigger Workflow in efs-opensource.github.io
+#   uses: peter-evans/repository-dispatch@v1
+#   with:
+#     token: ${{ secrets.PAT }}
+#     repository: efs-opensource/efs-opensource.github.io
+#     event-type: run-main-workflow
