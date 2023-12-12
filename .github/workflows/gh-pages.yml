@@ -33,10 +33,10 @@ jobs:
         publish_branch: gh-pages
         publish_dir: ./site
 
-# # Trigger repository_dispatch event in efs-opensource.github.io repository
-# - name: Trigger Workflow in efs-opensource.github.io
-#   uses: peter-evans/repository-dispatch@v1
-#   with:
-#     token: ${{ secrets.PAT }}
-#     repository: efs-opensource/efs-opensource.github.io
-#     event-type: run-main-workflow
+    # Trigger repository_dispatch event in efs-opensource.github.io repository
+    - name: Trigger Workflow in efs-opensource.github.io
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.PAT }}
+        repository: efs-opensource/efs-opensource.github.io
+        event-type: run-main-workflow
